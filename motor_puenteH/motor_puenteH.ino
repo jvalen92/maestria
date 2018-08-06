@@ -66,7 +66,7 @@ void p0() {
     v0 = digitalRead(sw0);
   }
   parar();
-  state=0;
+  state = 0;
   //Serial.println(state);
 }
 
@@ -77,7 +77,7 @@ void p1() {
     v1 = digitalRead(sw1);
   }
   parar();
-  state=1;
+  state = 1;
   Serial.println(state);
 }
 
@@ -88,23 +88,11 @@ void p2() {
     v2 = digitalRead(sw2);
   }
   parar();
-  state=2;
+  state = 2;
   Serial.println(state);
 }
 
-void loop()
-{
-  v0 = digitalRead(sw0);
-  v1 = digitalRead(sw1);
-  v2 = digitalRead(sw2);
-  /*
-    Serial.print(v0);
-    Serial.print(v1);
-    Serial.println(v2);
-  */
-
-  //Serial ins
-
+void plataforma1(){
   while (Serial.available() > 0) {
     String ins = Serial.readStringUntil("\n");
 
@@ -115,6 +103,7 @@ void loop()
       //reemplazar por el metodo para mover el dynamixel
       Serial.println("Moviendo dynamixel planta 1");
       delay(3000);
+      Serial.println(state);
       break;
     }
     else if (ins == "RPL1P1") {
@@ -156,6 +145,22 @@ void loop()
       break;
     }
   }
+}
+
+void loop()
+{
+  v0 = digitalRead(sw0);
+  v1 = digitalRead(sw1);
+  v2 = digitalRead(sw2);
+  /*
+    Serial.print(v0);
+    Serial.print(v1);
+    Serial.println(v2);
+  */
+
+  //Serial ins
+
+  
 }
 
 
